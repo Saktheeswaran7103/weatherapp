@@ -20,6 +20,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -60,3 +61,6 @@ DATABASES["default"]=dj_database_url.parse(database_url)
 #postgresql://weatherapp_django_render_user:f92yjO8WVtQKQN3K8jxtclW6o5yMBPBs@dpg-d42dreruibrs73ctfcbg-a.oregon-postgres.render.com/weatherapp_django_render
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'weatherapp'/ 'static']
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
